@@ -19,8 +19,8 @@ if [ -z $PUID ]; then PUID=$DUID; fi
 # delete user/group if PUID/PGID already exists
 _USER=$(getent passwd $PUID | cut -f1 -d ':')
 _GROUP=$(getent group $PGID | cut -f1 -d ':')
-if [ -z $_USER ]; then deluser $_USER; fi  
-if [ -z $_GROUP ]; then delgroup $_GROUP; fi  
+if [ ! -z $_USER ]; then deluser $_USER; fi  
+if [ ! -z $_GROUP ]; then delgroup $_GROUP; fi  
 
 # create user, group, and home
 addgroup -g $PGID $GROUP
