@@ -23,6 +23,9 @@ WORKDIR /home
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
+COPY entrypoint.sh /usr/local/bin/entrypoint_crond.sh
+RUN chmod +x /usr/local/bin/entrypoint_crond.sh
+
 #                            USER      GROUP     HOME     COMMAND
 ENTRYPOINT ["entrypoint.sh", "rclone", "rclone", "/home", "rclone"]
 
