@@ -16,15 +16,28 @@ PARAMS=$@
 if [ -z $PGID ]; then PGID=$DGID; fi
 if [ -z $PUID ]; then PUID=$DUID; fi
 
-# delete user/group if PUID/PGID already exists
-_USER=$(getent passwd $PUID | cut -f1 -d ':')
 _GROUP=$(getent group $PGID | cut -f1 -d ':')
-if [ ! -z $_USER ]; then deluser $_USER; fi  
-if [ ! -z $_GROUP ]; then delgroup $_GROUP; fi  
+_USER=$(getent passwd $PUID | cut -f1 -d ':')
+
+# does a group with PGID already exist ?
+if [ ! -z $_GROUP ]; then
+  # change name of the existing group
+  groupmod -n $GROUP $_GROUP
+else
+  # create new group with PGID
+  addgroup -g $PGID $GROUP  
+fi  
+
+# does a user with PUID already exist ?
+if [ ! -z $_USER ]; then 
+  # change login, home, shell and primary group of the existing user
+  usermod -l $USER -d $HOME -s /bin/sh -g $PGID $_USER
+else
+  # create new user with PUID, GROUP and HOME
+  adduser -u $PUID -G $GROUP -h $HOME -D $USER  
+fi  
 
 # create user, group, and home
-addgroup -g $PGID $GROUP
-adduser -u $PUID -G $GROUP -h $HOME -D $USER
 chown $USER:$GROUP $HOME
 
 # exec command as user
