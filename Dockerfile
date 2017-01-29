@@ -7,7 +7,11 @@ ENV RCLONE_VERSION=current
 ENV RCLONE_ZIP=rclone-${RCLONE_VERSION}-linux-${ARCH}.zip
 ENV RCLONE_DOWNLOAD=http://downloads.rclone.org
 
-RUN apk --no-cache --update add ca-certificates fuse su-exec \
+RUN apk --no-cache --update add \
+      ca-certificates \
+      fuse \
+      shadow \
+      su-exec \
     && cd /tmp \
     && wget -q ${RCLONE_DOWNLOAD}/${RCLONE_ZIP} \
     && unzip /tmp/${RCLONE_ZIP} \
