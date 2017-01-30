@@ -1,7 +1,18 @@
 #!/bin/sh
 
-PARAMS=$@
+CRONTAB_DIR=$1
+shift
+CROND_PARAMS=$@
 
-entrypoint.sh rclone rclone /home true
+ENTRYPOINT_USER=rclone
+ENTRYPOINT_GROUP=rclone
+ENTRYPOINT_HOME=/home
+ENTRYPOINT_COMMAND=crontab -u $ENTRYPOINT_USER -c $CRONTAB_DIR
 
-crond $PARAMS
+entrypoint.sh \
+  $ENTRYPOINT_USER \
+  $ENTRYPOINT_GROUP \
+  $ENTRYPOINT_HOME \
+  $ENTRYPOINT_COMMAND
+
+crond $CROND_PARAMS

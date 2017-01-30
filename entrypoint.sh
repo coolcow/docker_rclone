@@ -1,44 +1,44 @@
 #!/bin/sh
 
 # default PUID if not set
-DGID=1000
+DEFAULT_PGID=1000
 # default PGID if not set
-DUID=1000
+DEFAULT_PUID=1000
 
-USER=$1
-GROUP=$2
-HOME=$3
-COMMAND=$4
+ENTRYPOINT_USER=$1
+ENTRYPOINT_GROUP=$2
+ENTRYPOINT_HOME=$3
+ENTRYPOINT_COMMAND=$4
 shift 4
-PARAMS=$@
+ENTRYPOINT_PARAMS=$@
 
 # set default GroupID and default UserID if not already set
-if [ -z $PGID ]; then PGID=$DGID; fi
-if [ -z $PUID ]; then PUID=$DUID; fi
+if [ -z $PGID ]; then PGID=$DEFAULT_PGID; fi
+if [ -z $PUID ]; then PUID=$DEFAULT_PUID; fi
 
-_GROUP=$(getent group $PGID | cut -f1 -d ':')
-_USER=$(getent passwd $PUID | cut -f1 -d ':')
 
 # does a group with PGID already exist ?
-if [ ! -z $_GROUP ]; then
+EXISTING_GROUP=$(getent group $PGID | cut -f1 -d ':')
+if [ ! -z $EXISTING_GROUP ]; then
   # change name of the existing group
-  groupmod -n $GROUP $_GROUP
+  groupmod -n $ENTRYPOINT_GROUP $EXISTING_GROUP
 else
   # create new group with PGID
-  addgroup -g $PGID $GROUP  
+  addgroup -g $PGID $ENTRYPOINT_GROUP  
 fi  
 
 # does a user with PUID already exist ?
-if [ ! -z $_USER ]; then 
+EXISTING__USER=$(getent passwd $PUID | cut -f1 -d ':')
+if [ ! -z $EXISTING__USER ]; then 
   # change login, home, shell and primary group of the existing user
-  usermod -l $USER -d $HOME -s /bin/sh -g $PGID $_USER
+  usermod -l $ENTRYPOINT_USER -d $ENTRYPOINT_HOME -s /bin/sh -g $PGID $EXISTING__USER
 else
   # create new user with PUID, GROUP and HOME
-  adduser -u $PUID -G $GROUP -h $HOME -D $USER  
+  adduser -u $PUID -G $ENTRYPOINT_GROUP -h $ENTRYPOINT_HOME -D $ENTRYPOINT_USER  
 fi  
 
 # create user, group, and home
-chown $USER:$GROUP $HOME
+chown $ENTRYPOINT_USER:$ENTRYPOINT_GROUP $ENTRYPOINT_HOME
 
-# exec command as user
-su-exec $USER $COMMAND $PARAMS
+# exec ENTRYPOINT_COMMAND as user
+su-exec $ENTRYPOINT_USER $ENTRYPOINT_COMMAND $ENTRYPOINT_PARAMS
