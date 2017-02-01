@@ -4,9 +4,9 @@ MAINTAINER Jean-Michel Ruiz (coolcow) <mail@coolcow.org>
 
 # Build-time metadata as defined at http://label-schema.org
 
-ARG BUILD_DATE \
-    VCS_REF
-    VERSION
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="rclone" \
@@ -23,12 +23,11 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 ENV ARCH=amd64 \
     RCLONE_VERSION=current \
-    RCLONE_ZIP=rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
     RCLONE_DOWNLOAD=http://downloads.rclone.org \
     ENTRYPOINT_USER=rclone \
     ENTRYPOINT_GROUP=rclone \
     ENTRYPOINT_HOME=/home
-
+ENV RCLONE_ZIP=rclone-${RCLONE_VERSION}-linux-${ARCH}.zip
 
 # install rclone
 
