@@ -96,6 +96,7 @@ Take a look ast [the rclone command list](http://rclone.org/commands/) to see al
     -v <PATH_TO_YOUR_DATA>:/data \
     -v <PATH_TO_YOUR_CRONTAB>:/crontab \
     -v <PATH_TO_YOUR_LOGS>:/logs \
+    --entrypoint=/entrypoint_crond.sh \
     farmcoolcow/rclone \
       -f
   ```
