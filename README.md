@@ -1,5 +1,7 @@
 # farmcoolcow/rclone ![](https://images.microbadger.com/badges/version/farmcoolcow/rclone.svg) ![](https://images.microbadger.com/badges/commit/farmcoolcow/rclone.svg) ![](https://images.microbadger.com/badges/image/farmcoolcow/rclone.svg) ![](https://images.microbadger.com/badges/license/farmcoolcow/rclone.svg)
 
+---
+
 ## What is Rclone ?
 
 *rsync for cloud storage*
