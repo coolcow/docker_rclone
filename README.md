@@ -13,10 +13,11 @@ More informations on [the official Rclone website](http://rclone.org/).
 
 ## How to use this image
 
+This image is based on [farmcoolcow/alpine_entrypoint](https://hub.docker.com/r/farmcoolcow/alpine_entrypoint/).
+
 The default **ENTRYPOINT** is ```rclone``` and the default **CMD** is ```--help```.
 
 The available environment variables are:
-    The command that is executed from the entrypoint /entrypoint_su-exec.sh.
   * ```PUID``` (default = **1000**)  
     The user id of the user created inside the docker container.
   * ```PGID``` (default = **1000**)  
