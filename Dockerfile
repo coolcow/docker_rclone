@@ -34,6 +34,8 @@ RUN apk --no-cache --update add \
     && mv /tmp/rclone*/rclone /usr/bin \
     && rm -r /tmp/rclone*
 
+VOLUME $ENTRYPOINT_HOME
+
 WORKDIR $ENTRYPOINT_HOME
 
 ENTRYPOINT ["/entrypoint_su-exec.sh", "rclone"]
