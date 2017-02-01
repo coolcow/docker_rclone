@@ -16,20 +16,13 @@ More informations on [the official Rclone website](http://rclone.org/).
 The default **ENTRYPOINT** is ```rclone``` and the default **CMD** is ```--help```.
 
 The available environment variables are:
-  * ```ENTRYPOINT_USER``` (default = **rclone**)  
-    The user name of the user created inside the docker container. (you don't need to change this)
-  * ```ENTRYPOINT_GROUP``` (default = **rclone**)  
-    The group name of the user created inside the docker container. (you don't need to change this)
-  * ```ENTRYPOINT_HOME``` (default = **/home**)  
-    The home of the user created inside the docker container. (you don't need to change this)
-  * ```ENTRYPOINT_COMMAND``` (default = **rclone**)  
     The command that is executed from the entrypoint /entrypoint_su-exec.sh.
   * ```PUID``` (default = **1000**)  
     The user id of the user created inside the docker container.
   * ```PGID``` (default = **1000**)  
     The group id of the user created inside the docker container.
 
-> Use the environment variables ```PUID``` and ```PGID``` to execute rclone with the **uid** and **gid** of your user. This prevents permission problems while accessing your data.
+  > Use the environment variables ```PUID``` and ```PGID``` to execute rclone with the **uid** and **gid** of your user. This prevents permission problems while accessing your data.
 
 Take a look ast [the rclone command list](http://rclone.org/commands/) to see all the available commands.
 
