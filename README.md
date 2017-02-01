@@ -21,7 +21,6 @@ The available environment variables are:
   * ```PUID``` (default = **1000**): the user id of the user created inside the docker container.
   * ```PGID``` (default = **1000**): the group id of the user created inside the docker container.
 
-
 Use the environment variables ```PUID``` and ```PGID``` to execute rclone with the **uid** and **gid** of your user. This prevents permission problems while accessing your data.
 
 Take a look ast [the rclone command list](http://rclone.org/commands/) to see all the available commands.
@@ -40,7 +39,7 @@ Take a look ast [the rclone command list](http://rclone.org/commands/) to see al
     farmcoolcow/rclone \
       config
   ```
-
+  
   > Replace ```<PATH_TO_YOUR_CONF>``` by the file-path of your rclone configuration file.
 
 ---
@@ -58,7 +57,6 @@ Take a look ast [the rclone command list](http://rclone.org/commands/) to see al
     farmcoolcow/rclone \
       sync /home/data cloudstorage:
   ```
-
-  > Replace ```<PATH_TO_YOUR_CONF>``` by the file-path of your rclone configuration file.
-
+  
+  > Replace ```<PATH_TO_YOUR_CONF>``` by the file-path of your rclone configuration file.  
   > Replace ```<PATH_TO_YOUR_DATA>``` by the directory-path of your data.
