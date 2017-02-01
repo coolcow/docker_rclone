@@ -12,6 +12,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="rclone" \
       org.label-schema.description="Simple rclone Docker image based on alpine." \
       org.label-schema.url="https://hub.docker.com/r/farmcoolcow/rclone/" \
+      org.label-schema.license="GPL v3" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/farmcoolcow/docker_rclone" \
       org.label-schema.vendor="coolcow.org" \
