@@ -1,11 +1,13 @@
 FROM farmcoolcow/alpine_entrypoint
 
-MAINTAINER Jean-Michel Ruiz <mail@coolcow.org>
+MAINTAINER Jean-Michel Ruiz (coolcow) <mail@coolcow.org>
 
 # Build-time metadata as defined at http://label-schema.org
-ARG BUILD_DATE
-ARG VCS_REF
-ARG VERSION
+
+ARG BUILD_DATE \
+    VCS_REF
+    VERSION
+
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="rclone" \
       org.label-schema.description="Simple rclone Docker image based on alpine." \
@@ -16,14 +18,19 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
 
-ENV ARCH=amd64
-ENV RCLONE_VERSION=current
-ENV RCLONE_ZIP=rclone-${RCLONE_VERSION}-linux-${ARCH}.zip
-ENV RCLONE_DOWNLOAD=http://downloads.rclone.org
 
-ENV ENTRYPOINT_USER=rclone
-ENV ENTRYPOINT_GROUP=rclone
-ENV ENTRYPOINT_HOME=/home
+# Evironment variables
+
+ENV ARCH=amd64 \
+    RCLONE_VERSION=current \
+    RCLONE_ZIP=rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
+    RCLONE_DOWNLOAD=http://downloads.rclone.org \
+    ENTRYPOINT_USER=rclone \
+    ENTRYPOINT_GROUP=rclone \
+    ENTRYPOINT_HOME=/home
+
+
+# install rclone
 
 RUN apk --no-cache --update add \
       ca-certificates \
@@ -33,6 +40,7 @@ RUN apk --no-cache --update add \
     && unzip /tmp/${RCLONE_ZIP} \
     && mv /tmp/rclone*/rclone /usr/bin \
     && rm -r /tmp/rclone*
+
 
 VOLUME $ENTRYPOINT_HOME
 
