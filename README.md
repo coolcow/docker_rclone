@@ -14,15 +14,20 @@ More informations on [the official Rclone website](http://rclone.org/).
 The default **ENTRYPOINT** is ```rclone``` and the default **CMD** is ```--help```.
 
 The available environment variables are:
-  * ```ENTRYPOINT_USER``` (default = **rclone**): the user name of the user created inside the docker container. (you don't need to change this)
-  * ```ENTRYPOINT_GROUP``` (default = **rclone**): the group name of the user created inside the docker container. (you don't need to change this)
-  * ```ENTRYPOINT_HOME``` (default = **/home**): the home of the user created inside the docker container. (you don't need to change this)
-  * ```ENTRYPOINT_COMMAND``` (default = **rclone**): the command that is executed as an entrypoint with su-exec (*/entrypoint_su-exec.sh $ENTRYPOINT_COMMAND ...).
-  * ```PUID``` (default = **1000**): the user id of the user created inside the docker container.
-  * ```PGID``` (default = **1000**): the group id of the user created inside the docker container.
+  * ```ENTRYPOINT_USER``` (default = **rclone**)  
+    The user name of the user created inside the docker container. (you don't need to change this)
+  * ```ENTRYPOINT_GROUP``` (default = **rclone**)  
+    The group name of the user created inside the docker container. (you don't need to change this)
+  * ```ENTRYPOINT_HOME``` (default = **/home**)  
+    The home of the user created inside the docker container. (you don't need to change this)
+  * ```ENTRYPOINT_COMMAND``` (default = **rclone**)  
+    The command that is executed from the entrypoint /entrypoint_su-exec.sh.
+  * ```PUID``` (default = **1000**)  
+    The user id of the user created inside the docker container.
+  * ```PGID``` (default = **1000**)  
+    The group id of the user created inside the docker container.
 
-
-Use the environment variables ```PUID``` and ```PGID``` to execute rclone with the **uid** and **gid** of your user. This prevents permission problems while accessing your data.
+> Use the environment variables ```PUID``` and ```PGID``` to execute rclone with the **uid** and **gid** of your user. This prevents permission problems while accessing your data.
 
 Take a look ast [the rclone command list](http://rclone.org/commands/) to see all the available commands.
 
@@ -40,7 +45,7 @@ Take a look ast [the rclone command list](http://rclone.org/commands/) to see al
     farmcoolcow/rclone \
       config
   ```
-
+  
   > Replace ```<PATH_TO_YOUR_CONF>``` by the file-path of your rclone configuration file.
 
 ---
@@ -58,7 +63,6 @@ Take a look ast [the rclone command list](http://rclone.org/commands/) to see al
     farmcoolcow/rclone \
       sync /home/data cloudstorage:
   ```
-
-  > Replace ```<PATH_TO_YOUR_CONF>``` by the file-path of your rclone configuration file.
-
+  
+  > Replace ```<PATH_TO_YOUR_CONF>``` by the file-path of your rclone configuration file.  
   > Replace ```<PATH_TO_YOUR_DATA>``` by the directory-path of your data.
