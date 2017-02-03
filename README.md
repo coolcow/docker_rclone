@@ -75,7 +75,7 @@ Take a look ast [the rclone command list](http://rclone.org/commands/) to see al
   > Syncs your data directory with your cloud storage every two hours. Uses a lock file to prevent the execution if the previous execution is not yet finished. Creates a new unique log file in your logs directory.
   
   ```crontab
-  0 0 */2 * * flock -n ~/rclone.lock rclone sync --log-file /logs/rclone.$(date +%Y%m%d_%H%M%S).log /data cloudstorage: &
+  0 */2 * * * flock -n ~/rclone.lock rclone sync --log-file /logs/rclone.$(date +%Y%m%d_%H%M%S).log /data cloudstorage: &
   ```
   
   ---
