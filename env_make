@@ -1,2 +1,7 @@
+NAMESPACE = farmcoolcow
+NAME = rclone
+INSTANCE = test
+DEPENDENCIES = alpine farmcoolcow/entrypoints
+VERSION ?= latest
 ENVIRONMENTS = 
 VOLUMES = 
