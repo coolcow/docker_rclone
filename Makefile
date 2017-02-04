@@ -1,12 +1,6 @@
 # https://gist.github.com/coolcow/213653bef387855349593dcd16923637
 
-NAMESPACE = farmcoolcow
-NAME = rclone
-INSTANCE = test
-DEPENDENCIES = alpine farmcoolcow/entrypoints
-VERSION ?= latest
-
-# ---
+include make.env
 
 IMAGE_NAME = $(NAMESPACE)/$(NAME)
 
