@@ -3,12 +3,12 @@
 NAMESPACE = farmcoolcow
 NAME = rclone
 INSTANCE = test
-DEPENDENCIES = alpine farmcoolcow/alpine_entrypoint
+DEPENDENCIES = alpine farmcoolcow/entrypoints
 VERSION ?= latest
 
 # ---
 
-IMAGE = $(NAMESPACE)/$(NAME):$(VERSION)
+IMAGE_NAME = $(NAMESPACE)/$(NAME)
 
 # ---
 
@@ -24,26 +24,27 @@ update-dependencies:
 # ---
 
 build:
-	@docker build -t $(IMAGE) \
+	@docker build -t $(IMAGE_NAME):$(VERSION) \
 	  --build-arg VCS_REF=`git rev-parse --short HEAD` \
 	  --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+      --build-arg IMAGE_NAME=$(IMAGE_NAME) \
 	  --build-arg VERSION=$(VERSION) \
       .
 
 # ---
 
 inspect:
-	@docker inspect $(IMAGE)
+	@docker inspect $(IMAGE_NAME):$(VERSION)
 
 # ---
 
 run:
-	@docker run --rm $(IMAGE) $(ENVIRONMENTS) $(VOLUMES)
+	@docker run --rm $(IMAGE_NAME):$(VERSION) $(ENVIRONMENTS) $(VOLUMES)
 
 # ---
 
 start:
-	@docker run -d --name $(NAME)-$(INSTANCE) $(ENVIRONMENTS) $(VOLUMES) $(IMAGE)
+	@docker run -d --name $(NAME)-$(INSTANCE) $(ENVIRONMENTS) $(VOLUMES) $(IMAGE_NAME):$(VERSION)
 
 # ---
 
@@ -58,9 +59,9 @@ exec:
 # ---
 
 shell:
-	@docker run --rm -it $(IMAGE) /bin/sh
+	@docker run --rm -it $(IMAGE_NAME):$(VERSION) /bin/sh
 
 # ---
 
 release:
-	@docker push $(IMAGE) 
+	@docker push $(IMAGE_NAME):$(VERSION) 

@@ -1,5 +1,5 @@
 # farmcoolcow/rclone
-![](https://images.microbadger.com/badges/version/farmcoolcow/rclone.svg) ![](https://images.microbadger.com/badges/commit/farmcoolcow/rclone.svg) ![](https://images.microbadger.com/badges/image/farmcoolcow/rclone.svg) ![](https://images.microbadger.com/badges/license/farmcoolcow/rclone.svg)
+[![](https://img.shields.io/badge/  FROM  -farmcoolcow/entrypoints-lightgray.svg)](https://hub.docker.com/farmcoolcow/entrypoints) ![](https://images.microbadger.com/badges/commit/farmcoolcow/rclone.svg) ![](https://images.microbadger.com/badges/image/farmcoolcow/rclone.svg) ![](https://images.microbadger.com/badges/license/farmcoolcow/rclone.svg)
 
 ---
 
@@ -14,7 +14,7 @@ More informations on [the official Rclone website](http://rclone.org/).
 
 ## How to use this image
 
-This image is based on [farmcoolcow/alpine_entrypoint](https://hub.docker.com/r/farmcoolcow/alpine_entrypoint/).
+This image is based on [farmcoolcow/entrypoints](https://hub.docker.com/r/farmcoolcow/entrypoints/).
 
 The default **ENTRYPOINT** is ```rclone``` and the default **CMD** is ```--help```.
 
