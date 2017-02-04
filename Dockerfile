@@ -6,7 +6,8 @@ ENV LABEL_MAINTAINER="Jean-Michel Ruiz (coolcow) <mail@coolcow.org>" \
     LABEL_URL="https://hub.docker.com/r/farmcoolcow/rclone/" \
     LABEL_VCS_URL="https://github.com/farmcoolcow/docker_rclone" \
     LABEL_DESCRIPTION="Simple rclone Docker image based on alpine." \
-    LABEL_LICENSE="GPL-3.0" \ARCH=amd64 \
+    LABEL_LICENSE="GPL-3.0" \
+    ARCH=amd64 \
     RCLONE_VERSION=current \
     RCLONE_DOWNLOAD=http://downloads.rclone.org \
     ENTRYPOINT_USER=rclone \
