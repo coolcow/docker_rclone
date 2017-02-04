@@ -24,11 +24,11 @@ update-dependencies:
 # ---
 
 build:
-	@docker build -t $(IMAGE_NAME):$(VERSION) \
-	  --build-arg VCS_REF=`git rev-parse --short HEAD` \
-	  --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
-      --build-arg IMAGE_NAME=$(IMAGE_NAME) \
-	  --build-arg VERSION=$(VERSION) \
+	@ \
+	IMAGE_NAME=$(IMAGE_NAME) \
+	VCS_REF=`git rev-parse --short HEAD` \
+	BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+	hooks/build \
       .
 
 # ---
