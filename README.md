@@ -1,5 +1,9 @@
 # farmcoolcow/rclone
-[![](https://img.shields.io/badge/  FROM  -farmcoolcow/entrypoints-lightgray.svg)](https://hub.docker.com/r/farmcoolcow/entrypoints) ![](https://images.microbadger.com/badges/commit/farmcoolcow/rclone.svg) ![](https://images.microbadger.com/badges/image/farmcoolcow/rclone.svg) ![](https://images.microbadger.com/badges/license/farmcoolcow/rclone.svg)
+
+[![](https://img.shields.io/badge/  FROM  -farmcoolcow/entrypoints-lightgray.svg)](https://hub.docker.com/r/farmcoolcow/entrypoints) 
+[![](https://images.microbadger.com/badges/commit/farmcoolcow/rclone.svg)](https://github.com/coolcow/docker_rclone/commits/master) 
+[![](https://images.microbadger.com/badges/image/farmcoolcow/rclone.svg)](https://microbadger.com/images/farmcoolcow/rclone) 
+[![](https://images.microbadger.com/badges/license/farmcoolcow/rclone.svg)](https://raw.githubusercontent.com/coolcow/docker_rclone/master/LICENSE.txt)
 
 ---
 
