@@ -1,9 +1,6 @@
 # farmcoolcow/rclone
 
-[![](https://img.shields.io/badge/  FROM  -farmcoolcow/entrypoints-lightgray.svg)](https://hub.docker.com/r/farmcoolcow/entrypoints) 
-[![](https://images.microbadger.com/badges/commit/farmcoolcow/rclone.svg)](https://github.com/coolcow/docker_rclone/commits/master) 
-[![](https://images.microbadger.com/badges/image/farmcoolcow/rclone.svg)](https://microbadger.com/images/farmcoolcow/rclone) 
-[![](https://images.microbadger.com/badges/license/farmcoolcow/rclone.svg)](https://raw.githubusercontent.com/coolcow/docker_rclone/master/LICENSE.txt)
+[![](https://img.shields.io/badge/  FROM  -farmcoolcow/entrypoints-lightgray.svg)](https://hub.docker.com/r/farmcoolcow/entrypoints) [![](https://images.microbadger.com/badges/commit/farmcoolcow/rclone.svg)](https://github.com/coolcow/docker_rclone/commits/master) [![](https://images.microbadger.com/badges/image/farmcoolcow/rclone.svg)](https://microbadger.com/images/farmcoolcow/rclone) [![](https://images.microbadger.com/badges/license/farmcoolcow/rclone.svg)](https://raw.githubusercontent.com/coolcow/docker_rclone/master/LICENSE.txt)
 
 ---
 
@@ -30,7 +27,7 @@ The available environment variables are:
 
   > Use the environment variables ```PUID``` and ```PGID``` to execute rclone with the **uid** and **gid** of your user. This prevents permission problems while accessing your data.
 
-Take a look ast [the rclone command list](http://rclone.org/commands/) to see all the available commands.
+Take a look at [the rclone command list](http://rclone.org/commands/) to see all the available commands.
 
 ---
 
