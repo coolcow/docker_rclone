@@ -19,6 +19,7 @@ ENV LABEL_MAINTAINER="Jean-Michel Ruiz (coolcow) <mail@coolcow.org>" \
 RUN apk --no-cache --update add \
       ca-certificates \
       fuse \
+      openssl \
     && cd /tmp \
     && wget -q ${RCLONE_DOWNLOAD}/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
     && unzip /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
