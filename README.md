@@ -59,7 +59,7 @@ Take a look at [the rclone command list](http://rclone.org/commands/) to see all
     -v <PATH_TO_YOUR_CONF>:/home/.rclone.conf \
     -v <PATH_TO_YOUR_DATA>:/data \
     farmcoolcow/rclone \
-      sync /home/data cloudstorage:
+      sync /data cloudstorage:
   ```
   
   > Replace ```<PATH_TO_YOUR_CONF>``` with the file-path of your rclone configuration file.  
